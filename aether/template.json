@@ -1,0 +1,30 @@
+{
+    "Actor": {},
+
+    "Item": {
+        "types": ["gun", "blade"],
+        "templates": {
+            "itemDescription": {
+                "description": ""
+            }
+        },
+        "gun": {
+            "templates": ["itemDescription"],
+            "attackWith": "firearms",
+            "recoil": 0,
+            "mobility": 0,
+            "range": 0,
+            "burst": 2,
+            "jam": 0,
+            "rails": "none"
+        },
+        "blade": {
+            "templates": ["itemDescription"],
+            "attackWith": "blades",
+            "damage": 0,
+            "mobility": 0,
+            "pierce": 0,
+            "shred": 0
+        }
+    }
+}
