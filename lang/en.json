@@ -1,0 +1,21 @@
+{
+    "aether": {
+        "attack": {
+            "none": "",
+            "firearms": "Firearms",
+            "blades": "Blades",
+            "polearms": "Polearms",
+            "fists": "Fists",
+            "impact": "Impact"
+        },
+        "gun": {
+            "attackWith": "Attack With",
+            "recoil": "Recoil",
+            "mobility": "Mobility",
+            "range": "Range",
+            "burst": "Burst",
+            "jam": "Jam",
+            "rails": "Rails"
+        }
+    }
+}
