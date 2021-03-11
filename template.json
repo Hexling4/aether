@@ -1,121 +1,106 @@
 {
-    "Actor": {
-        "types": ["characters", "grunts", "casters", "beasts"],
-        "templates": {
-            "commonStats":{
-                "abilities": {
-                    "str": 10,
-                    "dex": 10,
-                    "con": 10,
-                    "int": 10,
-                    "cha": 10,
-                    "wil": 10
-                },
-                "skills": {
-
-                },
-                "hp": {
-                    "value": 10,
-                    "max": 10
-                }
-            },
-            "magic": {
-                "aura": {
-                    "value": 5,
-                    "max": 5
-                },
-                "aspects": {
-
-                }
-            },
-            "humanoidWounds": {
-                "head": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                },
-                "chest": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                },
-                "stomach": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                },
-                "rightArm": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                },
-                "leftArm": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                },
-                "rightLeg": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                },
-                "leftLeg": {
-                    "injury": 0,
-                    "wound": 0,
-                    "critical": 0,
-                    "severe": 0
-                }
-            }
+  "Actor": {
+    "types": ["character", "grunt", "caster", "beast"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
         },
-        "characters": {
-            "templates": ["commonStats", "magic", "humanoidWounds"],
-            "terror": {
-                "value": 0,
-                "max": 100
-            },
-            "scars": ""
+        "aura": {
+          "value": 5,
+          "min": 0,
+          "max": 5
         },
-        "grunts": {
-            "templates": ["commonStats", "humanoidWounds"]
+        "abilities": {
+          "str": {
+            "value": 10
+          },
+          "dex": {
+            "value": 10
+          },
+          "con": {
+            "value": 10
+          },
+          "int": {
+            "value": 10
+          },
+          "wil": {
+            "value": 10
+          },
+          "cha": {
+            "value": 10
+          }
         },
-        "casters": {
-            "templates": ["commonStats", "magic", "humanoidWounds"]
-        },
-        "beasts": {
-            "templates": ["commonStats", "magic"]
+        "skills": {
+          "academics": {
+            
+          }
         }
+      }
     },
-
-    "Item": {
-        "types": ["gun", "blade"],
-        "templates": {
-            "itemDescription": {
-                "description": ""
-            }
-        },
-        "gun": {
-            "templates": ["itemDescription"],
-            "attackWith": "firearms",
-            "recoil": 0,
-            "mobility": 0,
-            "range": 0,
-            "burst": 2,
-            "jam": 0,
-            "rails": "none"
-        },
-        "blade": {
-            "templates": ["itemDescription"],
-            "attackWith": "blades",
-            "damage": 0,
-            "mobility": 0,
-            "pierce": 0,
-            "shred": 0
-        }
+    "character": {
+      "templates": ["base"],
+      "biography": "",
+      "race": "",
+      "profession": "",
+      "terror": {
+        "value": 0,
+        "min": 0,
+        "max": 100
+      }
+    },
+    "grunt": {
+      "templates": ["base"]
+    },
+    "caster": {
+      "templates": ["base"]
+    },
+    "beast": {
+      "templates": ["base"]
     }
+  },
+  "Item": {
+    "types": ["item", "feature", "spell", "firearm", "armor", "ammunition"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "space": 0
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "spell": {
+      "templates": ["base"],
+      "dc": 10,
+      "cost": {
+
+      },
+      "time": "instant"
+    },
+    "firearm": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "space": 0
+    },
+    "armor": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "space": 0
+    },
+    "ammunition": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0
+    }
+  }
 }

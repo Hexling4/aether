@@ -1,24 +1,29 @@
 {
-    "name": "aether",
-    "title": "The Aether",
-    "description": "A system for playing The Aether.",
-    "author": "Hexling",
-    "version": "0.0.1",
-    "minimumCoreVerision": "0.7.9",
-    "compatibleCoreVersion": "0.7.9",
-    "templateVersion": 2,
-    "esmodules": ["aether.js"],
-    "styles": ["aether.css"],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json"
-        }
-    ],
-    "gridDistance": 1,
-    "gridUnits": "m",
-    "primaryTokenAttribute": "hp",
-    "secondaryTokenAttribute": "aura",
-    "initiative": "1d20 + @dex"
+  "name": "aether",
+  "title": "The Aether",
+  "description": "The Aether system for FoundryVTT!",
+  "version": "0.0.2",
+  "minimumCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.7.9",
+  "templateVersion": 2,
+  "author": "Hexling",
+  "esmodules": ["module/aether.js"],
+  "styles": ["css/aether.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "aura",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
 }
