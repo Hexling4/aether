@@ -1,0 +1,21 @@
+<tr class="item flex-center item-card" data-item-id="{{_id}}">
+    <td class="item-info item-name">
+        <p>{{name}}</p>
+    </td>
+    <td class="item-info item-quantity">
+        <input class="skill-edit" type="number" data-field="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+    </td>
+    <td class="item-info item-weight">
+        <input class="skill-edit" type="number" data-field="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+    </td>
+    <td class="item-info item-space">
+        <input class="skill-edit" type="number" data-field="data.space" value="{{data.space}}" data-dtype="Number"/>
+    </td>
+    <td class="item-info item-equipped">
+        <input class="skill-check" data-field="data.equipped" value="{{data.equipped}}" type="checkbox" name="data.equipped" {{checked data.equipped}}/>
+    </td>
+    <td class="item-controls">
+        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+    </td>
+</tr>

@@ -1,0 +1,31 @@
+<tr class="item flex-center item-card" data-item-id="{{_id}}">
+    <td class="item-info item-name">
+        <p>{{name}}</p>
+    </td>
+    <td class="resource flex-group-center">
+        <div class="resource-content flexrow flex-center flex-between skill-edit">
+            <input class="skill-edit" type="number" data-field="data.bullets.value" value="{{data.bullets.value}}" data-dtype="Number"/>
+            <span> / </span>
+            <input class="skill-edit" type="number" data-field="data.bullets.max" value="{{data.bullets.max}}" data-dtype="Number"/>
+        </div>
+    </td>
+    <td class="item-info item-damage">
+        <p>{{data.damage}}</p>
+    </td>
+    <td class="item-info item-pierce">
+        <input class="skill-edit" type="number" data-field="data.pierce" value="{{data.pierce}}" data-dtype="Number"/>
+    </td>
+    <td class="item-info item-shred">
+        <input class="skill-edit" type="number" data-field="data.shred" value="{{data.shred}}" data-dtype="Number"/>
+    </td>
+    <td class="item-info item-weight">
+        <input class="skill-edit" type="number" data-field="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+    </td>
+    <td class="item-info item-loaded">
+        <input class="skill-check" data-field="data.loaded" value="{{data.loaded}}" type="checkbox" name="data.loaded" {{checked data.loaded}}/>
+    </td>
+    <td class="item-controls">
+        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+    </td>
+</tr>

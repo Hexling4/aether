@@ -1,0 +1,26 @@
+<tr class="item flex-center skill-card" data-item-id="{{_id}}">
+    <td class="skill-info skill-name">
+        <p>{{name}}</p>
+    </td>
+    <td class="skill-info skill-ability">
+        <p>{{data.ability}}</p>
+    </td>
+    <td class="flexrow skill-info skill-value">
+        <input class="skill-edit" type="number" data-field="data.value" value="{{data.value}}" data-dtype="Number"/>
+    </td>
+    <td class="skill-info skill-mobility">
+        <input class="skill-check" data-field="data.mobility" value="{{data.mobility}}" type="checkbox" name="data.mobility" {{checked data.mobility}}/>
+    </td>
+    <td class="skill-info skill-mobility">
+        <input class="skill-check" data-field="data.pain" value="{{data.pain}}" type="checkbox" name="data.pain" {{checked data.pain}}/>
+    </td>
+    <td class="skill-info skill-token">
+        <input class="skill-check" data-field="data.token" value="{{data.token}}" type="checkbox" name="data.token" {{checked data.token}}/>
+    </td>
+    <td class="item-controls">
+        <a class="item-control item-improve" title="Improve Skill"><i class="fas fa-arrow-alt-circle-up"></i></a>
+        <a class="item-control item-roll" title="Skill Check"><i class="fas fa-dice-d20"></i></a>
+        <a class="item-control item-edit" title="Edit Skill"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="Delete Skill"><i class="fas fa-trash"></i></a>
+    </td>
+</tr>

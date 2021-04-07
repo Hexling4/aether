@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "grunt", "caster", "beast"],
+    "types": ["character", "beast", "container"],
     "templates": {
       "base": {
         "health": {
@@ -12,6 +12,21 @@
           "value": 5,
           "min": 0,
           "max": 5
+        },
+        "life": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "mob": 0,
+        "exp": 0,
+        "weight": 0,
+        "weightPen": 0,
+        "load": "Light",
+        "space": {
+          "value": 0,
+          "min": 0,
+          "max":0
         },
         "abilities": {
           "str": {
@@ -31,17 +46,96 @@
           },
           "cha": {
             "value": 10
+          },
+          "siz": {
+            "value": 12
+          },
+          "luk": {
+            "value": 10
+          },
+          "mov": {
+            "value": 8
           }
         },
-        "skills": {
-          "academics": {
-            
+        "aspects": {
+          "bone": {
+            "value": 0
+          },
+          "candle": {
+            "value": 0
+          },
+          "flesh": {
+            "value": 0
+          },
+          "forge": {
+            "value": 0
+          },
+          "grim": {
+            "value": 0
+          },
+          "knife": {
+            "value": 0
+          },
+          "moth": {
+            "value": 0
+          },
+          "night": {
+            "value": 0
+          },
+          "veil": {
+            "value": 0
           }
+        },
+        "eSkills": {
+          "initiative": 0,
+          "firearms": 0,
+          "axes": 0,
+          "blades": 0,
+          "clubs": 0,
+          "fists": 0,
+          "polearms": 0,
+          "whips": 0,
+          "dodge": 0
+        }
+      },
+      "wounds": {
+        "global": {
+          "bleed": 0,
+          "bloodloss": 0,
+          "pain": 0,
+          "limp": 0,
+          "stun": false,
+          "fatigue": false,
+          "collapse": false,
+          "incapacitate": false,
+          "dead": false
+        },
+        "head": {
+          "armor": 0,
+          "face": 0
+        },
+        "chest": {
+          "armor": 0
+        },
+        "stomach": {
+          "armor": 0
+        },
+        "leftArm": {
+          "armor": 0
+        },
+        "rightArm": {
+          "armor": 0
+        },
+        "leftLeg": {
+          "armor": 0
+        },
+        "rightLeg": {
+          "armor": 0
         }
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": ["base", "wounds"],
       "biography": "",
       "race": "",
       "profession": "",
@@ -51,28 +145,34 @@
         "max": 100
       }
     },
-    "grunt": {
-      "templates": ["base"]
-    },
-    "caster": {
-      "templates": ["base"]
-    },
     "beast": {
       "templates": ["base"]
+    },
+    "container": {
+      "description": "",
+      "weight": 0,
+      "space": {
+        "value": 0,
+        "min": 0,
+        "max": 0
+      }
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell", "firearm", "armor", "ammunition"],
+    "types": ["item", "feature", "spell", "firearm", "armor", "ammunition", "melee", "skill", "wound", "container"],
     "templates": {
       "base": {
         "description": ""
+      },
+      "gear": {
+        "quantity": 0,
+        "weight": 0,
+        "space": 0,
+        "equipped": true
       }
     },
     "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "space": 0
+      "templates": ["base", "gear"]
     },
     "feature": {
       "templates": ["base"]
@@ -80,27 +180,79 @@
     "spell": {
       "templates": ["base"],
       "dc": 10,
-      "cost": {
-
-      },
+      "cost": 0,
       "time": "instant"
     },
     "firearm": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "space": 0
+      "templates": ["base","gear"],
+      "mobility": 0,
+      "recoil": 0,
+      "jam": 0,
+      "range": 0,
+      "burstRate": ""
     },
     "armor": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "space": 0
+      "templates": ["base", "gear"],
+      "protection": 0,
+      "durability": {
+        "value": 0,
+        "max": 10,
+        "min": 0
+      },
+      "mobility": 0,
+      "coverage": "body"
     },
     "ammunition": {
+      "templates": ["base", "gear"],
+      "bullets": {
+        "value": 0,
+        "min": 0,
+        "max": 30
+      },
+      "damage": "1d6",
+      "pierce": 0,
+      "shred": 0,
+      "loaded": false,
+      "equipped": true
+    },
+    "melee": {
+      "templates": ["base", "gear"],
+      "attackWith": "blades",
+      "damage": "1d6",
+      "pierce": 0,
+      "shred": 0,
+      "mobility": 0,
+      "durability": {
+        "value": 0,
+        "max": 10,
+        "min": 0
+      }
+    },
+    "skill": {
       "templates": ["base"],
-      "quantity": 1,
-      "weight": 0
+      "ability": "int",
+      "value": 0,
+      "mobility": false,
+      "pain": false,
+      "token": false
+    },
+    "wound": {
+      "templates": ["base"],
+      "location": "chest",
+      "health": 0,
+      "bleed": 0,
+      "pain": 0,
+      "limp": 0,
+      "stun": false,
+      "fatigue": false,
+      "collapse": false,
+      "incapacitate": false,
+      "heal": 10
+    },
+    "container": {
+      "templates": ["base", "gear"],
+      "loadRatio": 1,
+      "mobility": 0
     }
   }
 }

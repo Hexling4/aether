@@ -1,0 +1,33 @@
+<tr class="item flex-center wound-card" data-item-id="{{_id}}">
+    <td class="wound-info wound-name">
+        <p>{{name}}</p>
+    </td>
+    <td class="wound-info wound-health">
+        <input class="skill-edit" type="number" data-field="data.health" value="{{data.health}}" data-dtype="Number"/>
+    </td>
+    <td class="wound-info wound-value">
+        <input class="skill-edit" type="number" data-field="data.bleed" value="{{data.bleed}}" data-dtype="Number"/>
+    </td>
+    <td class="wound-info wound-value">
+        <input class="skill-edit" type="number" data-field="data.pain" value="{{data.pain}}" data-dtype="Number"/>
+    </td>
+    <td class="wound-info wound-limp">
+        <input class="skill-edit" type="number" data-field="data.limp" value="{{data.limp}}" data-dtype="Number"/>
+    </td>
+    <td class="wound-info wound-stun">
+        <input class="skill-check" data-field="data.stun" value="{{data.stun}}" type="checkbox" name="data.stun" {{checked data.stun}}/>
+    </td>
+    <td class="wound-info wound-fatigue">
+        <input class="skill-check" data-field="data.fatigue" value="{{data.fatigue}}" type="checkbox" name="data.fatigue" {{checked data.fatigue}}/>
+    </td>
+    <td class="wound-info wound-collapse">
+        <input class="skill-check" data-field="data.collapse" value="{{data.collapse}}" type="checkbox" name="data.collapse" {{checked data.collapse}}/>
+    </td>
+    <td class="wound-info wound-heal">
+        <input class="skill-edit" type="number" data-field="data.heal" value="{{data.heal}}" data-dtype="Number"/>
+    </td>
+    <td class="item-controls">
+        <a class="item-control item-edit" title="Edit Wound"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" title="Delete Wound"><i class="fas fa-trash"></i></a>
+    </td>
+</tr>
