@@ -63,3 +63,36 @@ export async function HastyShot (weapon, owner, useLuck) {
     let skill = owner.data.data.eSkills.firearms;
     let mobility = owner.data.data.mob;
 }
+
+/**
+ * Explode the Die, rolling additional results for any values which are higher than the threshold.
+ * With each explosion, the threshold gets increased by the specified amount.
+ *
+ * @param {string} modifier The matched modifier query
+ */
+export function recoil(modifier) {
+    const rgx = /re([0-9]+):([0-9]+)/
+    const match = modifier.match(rgx);
+    if(!match) return this;
+    const [initialThresholdString, increaseString] = match.slice(1);
+    const initialThreshold = parseInt(initialThresholdString);
+    const increase = parseInt(increaseString);
+
+    // Recursively explode until there are no remaining results to explode
+    let checked = 0;
+    let currentThreshold = initialThreshold;
+    while (checked < this.results.length) {
+        let r = this.results[checked];
+        checked++;
+        if (!r.active) continue;
+
+        // Determine whether to explode the result and roll again!
+        if (r.result > currentThreshold) {
+            r.exploded = true;
+            this.roll();
+            currentThreshold += increase;
+        }
+
+        if (checked > 1000) throw new Error("Maximum recursion depth for recoiling dice roll exceeded");
+    }
+}

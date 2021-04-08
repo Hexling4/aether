@@ -5,6 +5,7 @@ import { AetherActorSheet } from "./actor/actor-sheet.js";
 import { AetherItem } from "./item/item.js";
 import { AetherItemSheet } from "./item/item-sheet.js";
 import * as Chat from "./chat.js";
+import { recoil } from './dice.js';
 
 async function preloadHandlebarsTemplates () {
   const templatePaths = [
@@ -43,6 +44,9 @@ Hooks.once('init', async function() {
   Actors.registerSheet("aether", AetherActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("aether", AetherItemSheet, { makeDefault: true });
+
+  // Register custom Die modifier
+  Die.MODIFIERS.re = recoil;
 
   preloadHandlebarsTemplates();
 
