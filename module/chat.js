@@ -11,12 +11,16 @@ export function addChatListeners (html) {
     //html.on('click', 'button.full-auto', onFullAuto);
 
     //Ammo Macros
-    //X
+    html.on('click', 'button.cqc-hit', onCqcHit);
+    html.on('click', 'button.ranged-hit', onRangedHit);
 
     //Melee Macros
-    //X
+    html.on('click', 'button.attack', onAttack);
+    html.on('click', 'button.attack-mobility', onAttackMobility);
+    html.on('click', 'button.damage', onDamage);
 }
 
+// Skill Rolls
 function onSkillRoll (event) {
     const card = event.currentTarget.closest(".item")
     let owner = game.actors.get(card.dataset.ownerId);
@@ -33,6 +37,7 @@ function onSkillRollMobility (event) {
     Dice.SkillCheckMobility(skill, owner);
 }
 
+// Shot Types
 function onHastyShot (event) {
     const card = event.currentTarget.closest(".item");
     let owner = game.actors.get(card.dataset.ownerId);
@@ -40,11 +45,50 @@ function onHastyShot (event) {
 
     Dice.HastyShot(weapon, owner);
 }
-
 function onCarefulShot (event) {
     const card = event.currentTarget.closest(".item");
     let owner = game.actors.get(card.dataset.ownerId);
     let weapon = owner.getOwnedItem(card.dataset.itemId);
 
     Dice.CarefulShot(weapon, owner);
+}
+
+
+// Hit Locations
+function onCqcHit (event) {
+    const card = event.currentTarget.closest(".item");
+    let owner = game.actors.get(card.dataset.ownerId);
+    let ammo = owner.getOwnedItem(card.dataset.itemId);
+
+    Dice.CqcHit(ammo, owner);
+}
+function onRangedHit (event) {
+    const card = event.currentTarget.closest(".item");
+    let owner = game.actors.get(card.dataset.ownerId);
+    let ammo = owner.getOwnedItem(card.dataset.itemId);
+
+    Dice.RangedHit(ammo, owner);
+}
+
+// Melee
+function onAttack (event) {
+    const card = event.currentTarget.closest(".item");
+    let owner = game.actors.get(card.dataset.ownerId);
+    let melee = owner.getOwnedItem(card.dataset.itemId);
+
+    Dice.Attack(melee, owner);
+}
+function onAttackMobility (event) {
+    const card = event.currentTarget.closest(".item");
+    let owner = game.actors.get(card.dataset.ownerId);
+    let melee = owner.getOwnedItem(card.dataset.itemId);
+
+    Dice.AttackMobility(melee, owner);
+}
+function onDamage (event) {
+    const card = event.currentTarget.closest(".item");
+    let owner = game.actors.get(card.dataset.ownerId);
+    let melee = owner.getOwnedItem(card.dataset.itemId);
+
+    Dice.Damage(melee, owner);
 }

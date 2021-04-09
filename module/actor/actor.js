@@ -136,22 +136,22 @@ export class AetherActor extends Actor {
     const firearmsSkill = this.items.filter((i) => i.name === "Firearms");
     firearmsSkill.forEach((skill) => { this.data.data.eSkills.firearms = parseInt(this.data.data.abilities.dex.mod) + parseInt(skill.data.data.value); });
   }
-  /*_calculateAxes() {
-    const firearmsSkill = this.items.filter((i) => i.name === "Firearms");
-    firearmsSkill.forEach((skill) => { this.data.data.eSkills.firearms = parseInt(this.data.data.abilities.dex.mod) + parseInt(skill.data.data.value); });
-  }*/
+  _calculateAxes() {
+    const axesSkill = this.items.filter((i) => i.name === "Axes");
+    axesSkill.forEach((skill) => { this.data.data.eSkills.axes = parseInt(this.data.data.abilities.str.mod) + parseInt(skill.data.data.value); });
+  }
   _calculateBlades() {
     const bladesSkill = this.items.filter((i) => i.name === "Blades");
     bladesSkill.forEach((skill) => { this.data.data.eSkills.blades = parseInt(this.data.data.abilities.dex.mod) + parseInt(skill.data.data.value); });
   }
-  /*_calculateClubs() {
-    const firearmsSkill = this.items.filter((i) => i.name === "Firearms");
-    firearmsSkill.forEach((skill) => { this.data.data.eSkills.firearms = parseInt(this.data.data.abilities.dex.mod) + parseInt(skill.data.data.value); });
-  }*/
-  /*_calculateFists() {
-    const firearmsSkill = this.items.filter((i) => i.name === "Firearms");
-    firearmsSkill.forEach((skill) => { this.data.data.eSkills.firearms = parseInt(this.data.data.abilities.dex.mod) + parseInt(skill.data.data.value); });
-  }*/
+  _calculateClubs() {
+    const clubsSkill = this.items.filter((i) => i.name === "Clubs");
+    clubsSkill.forEach((skill) => { this.data.data.eSkills.clubs = parseInt(this.data.data.abilities.str.mod) + parseInt(skill.data.data.value); });
+  }
+  _calculateFists() {
+    const fistsSkill = this.items.filter((i) => i.name === "Fists");
+    fistsSkill.forEach((skill) => { this.data.data.eSkills.fists = parseInt(this.data.data.abilities.str.mod) + parseInt(skill.data.data.value); });
+  }
   _calculatePolearms() {
     const polearmsSkill = this.items.filter((i) => i.name === "Polearms");
     polearmsSkill.forEach((skill) => { this.data.data.eSkills.polearms = parseInt(this.data.data.abilities.dex.mod) + parseInt(skill.data.data.value); });

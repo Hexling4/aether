@@ -220,7 +220,7 @@
       "attackWith": "blades",
       "damage": "1d6",
       "pierce": 0,
-      "shred": 0,
+      "shred": "1d6",
       "mobility": 0,
       "durability": {
         "value": 0,

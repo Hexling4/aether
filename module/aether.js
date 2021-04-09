@@ -48,6 +48,7 @@ Hooks.once('init', async function() {
   // Register custom Die modifier
   Die.MODIFIERS.re = recoil;
 
+
   preloadHandlebarsTemplates();
 
   // If you need to add Handlebars helpers, here are a few useful examples:
