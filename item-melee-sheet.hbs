@@ -1,0 +1,76 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <div>
+                <label class="resource-label">Skill</label>
+                <select name="data.attackWith">
+                {{#select data.attackWith}}
+                {{#each config.attackTypes as |name type|}}
+                    <option value="{{type}}">{{name}}</option>
+                {{/each}}
+                {{/select}}
+                </select>
+              </div>
+            <div class="grid grid-3col">
+              <div class="resource">
+                <label class="resource-label">Quantity</label>
+                  <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Weight</label>
+                  <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Space</label>
+                  <input type="text" name="data.space" value="{{data.space}}" data-dtype="Number"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Damage</label>
+                  <input type="text" name="data.damage" value="{{data.damage}}" data-dtype="String"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Pierce</label>
+                  <input type="text" name="data.pierce" value="{{data.pierce}}" data-dtype="Number"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Shred</label>
+                  <input type="text" name="data.shred" value="{{data.shred}}" data-dtype="String"/>
+              </div>
+              <div class="resource">
+                <label class="resource-label">Mobility</label>
+                  <input type="text" name="data.mobility" value="{{data.mobility}}" data-dtype="Number"/>
+              </div>
+              <div class="resource flex-group-center">
+                    <label for="data.durability.value" class="resource-label">Durability</label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <input type="text" name="data.durability.value" value="{{data.durability.value}}" data-dtype="Number"/>
+                        <span> / </span>
+                        <input type="text" name="data.durability.max" value="{{data.durability.max}}" data-dtype="Number"/>
+                    </div>
+              </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            {{!-- As you add new fields, add them in here! --}}
+        </div>
+    </section>
+</form>

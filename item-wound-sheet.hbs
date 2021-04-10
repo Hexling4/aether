@@ -1,0 +1,78 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <div class="resource">
+                <label class="resource-label">Location</label>
+                <select name="data.location">
+                {{#select data.location}}
+                {{#each config.woundLocations as |name type|}}
+                    <option value="{{type}}">{{name}}</option>
+                {{/each}}
+                {{/select}}
+                </select>
+            </div>
+            <div class="grid grid-5col">
+                <div class="resource">
+                    <label class="resource-label">HP Loss</label>
+                    <input type="text" name="data.health" value="{{data.health}}" data-dtype="Number"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">Bleed</label>
+                    <input type="text" name="data.bleed" value="{{data.bleed}}" data-dtype="Number"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">Pain</label>
+                    <input type="text" name="data.pain" value="{{data.pain}}" data-dtype="Number"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">Limp</label>
+                    <input type="text" name="data.limp" value="{{data.limp}}" data-dtype="Number"/>
+                </div>
+                <div class="resource">
+                    <label class="resource-label">Heal</label>
+                    <input type="text" name="data.heal" value="{{data.heal}}" data-dtype="Number"/>
+                </div>
+            </div>
+            <div class="grid grid-4col">
+                <div class="resource flexcol">
+                    <label class="resource-label">Stun</label>
+                    <input class="actor-check" data-field="data.stun" value="{{data.stun}}" type="checkbox" name="data.stun" {{checked data.stun}}/>
+                </div>
+                <div class="resource flexcol">
+                    <label class="resource-label">Fatigue</label>
+                    <input class="actor-check" data-field="data.fatigue" value="{{data.fatigue}}" type="checkbox" name="data.fatigue" {{checked data.fatigue}}/>
+                </div>
+                <div class="resource flexcol">
+                    <label class="resource-label">Collapse</label>
+                    <input class="actor-check" data-field="data.collapse" value="{{data.collapse}}" type="checkbox" name="data.collapse" {{checked data.collapse}}/>
+                </div>
+                <div class="resource flexcol">
+                    <label class="resource-label">Incap</label>
+                    <input class="actor-check" data-field="data.incapacitate" value="{{data.incapacitate}}" type="checkbox" name="data.incapacitate" {{checked data.incapacitate}}/>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            {{!-- As you add new fields, add them in here! --}}
+        </div>
+    </section>
+</form>
