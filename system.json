@@ -2,7 +2,7 @@
   "name": "aether",
   "title": "The Aether",
   "description": "The Aether system for FoundryVTT!",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "templateVersion": 2,
